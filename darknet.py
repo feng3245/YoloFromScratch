@@ -180,4 +180,4 @@ if __name__ == '__main__':
 	model = Darknet("cfg/yolov3.cfg")
 	inp = get_test_input()
 	pred = model.forward(inp, torch.cuda.is_available())
-	print (pred)
+	print ((pred[:,:,4] > 0.6).float().unsqueeze(2).shape)
